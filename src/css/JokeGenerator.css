@@ -1,0 +1,91 @@
+* {
+  overflow: hidden;
+}
+
+
+body {
+  margin: 0;
+  background: linear-gradient(160deg, #0a0a0a, #141414);
+  min-height: 100vh;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15vh;
+}
+
+
+.title,
+.subtitle,
+.empty-msg {
+  color: rgb(192, 14, 88);
+}
+
+
+.subtitle {
+  filter: brightness(0.7);
+  opacity: 0.8;
+  font-style: italic;
+  font-weight: 400;
+}
+
+
+.empty-msg {
+  font-size: 0.85em;
+  margin: 6%;
+}
+
+
+.joke-wrapper {
+  display: grid;
+  place-items: center;
+}
+
+
+.joke-card {
+  place-items: center;
+  margin: 2%;
+  background: #141414f0;
+  border-radius: 10px;
+  color: rgb(243, 15, 159);
+  padding: 0.45em;
+  width: 100%;
+  max-width: 400px;
+}
+
+
+.joke-msg {
+  font-size: 0.95em;
+}
+
+
+.joke-cate {
+  font-size: 0.85em;
+  text-align: end;
+}
+
+
+.generate-btn {
+  background: #141414f0;
+  color: rgb(192, 14, 88);
+  font-weight: 600;
+  padding: 0.75em;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.3s;
+}
+
+
+.generate-btn:hover {
+  color: rgb(213, 10, 78);
+  cursor: pointer;
+  box-shadow: 0px 0px 11px rgba(255, 0, 191, 0.083);
+  transform: scale(1.05);
+}
+
+
+/* Mobility */
