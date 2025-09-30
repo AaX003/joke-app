@@ -1,5 +1,6 @@
 * {
-  overflow: hidden;
+  overflow: visible;
+  scrollbar-width: none;
 }
 
 
@@ -19,7 +20,15 @@ body {
 }
 
 
-.title,
+.title {
+  background: linear-gradient(20deg, #000000, #da0553de, rgba(65, 0, 27, 0.898) 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke-width: .5px;
+}
+
+
 .subtitle,
 .empty-msg {
   color: rgb(192, 14, 88);
@@ -38,6 +47,7 @@ body {
   font-size: 0.85em;
   margin: 6%;
 }
+
 
 
 .joke-wrapper {
@@ -65,7 +75,10 @@ body {
 
 .joke-cate {
   font-size: 0.85em;
-  text-align: end;
+  background: linear-gradient(80deg, #910745, #47011c, rgba(72, 4, 32, 0.595) 90%);
+  padding: .35rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
 }
 
 
@@ -88,4 +101,21 @@ body {
 }
 
 
-/* Mobility */
+/* MOBILITY */
+@media (max-width: 480px) {
+    .subtitle {
+      display: inline-block;
+      width: 80%;
+    }
+
+
+    .joke-msg {
+      font-size: .85rem;
+    }
+
+
+    .joke-card {
+      width: 80%;
+      margin-bottom: 7%;
+    }
+}
