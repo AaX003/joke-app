@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
-  overflow: visible;
+  overflow-y: visible;
   scrollbar-width: none;
 }
 
 
 body {
   margin: 0;
-  background: linear-gradient(160deg, #0a0a0a, #141414);
   min-height: 100vh;
+  font-family: 'Poppins';
+  background-image: linear-gradient( 135deg, #ABDCFF 10%, #032dff 100%);
 }
 
 
@@ -15,23 +18,26 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  place-self: center;
   text-align: center;
   margin-top: 15vh;
+  background: #ffff;
+  padding: 2rem 3rem;
+  width: 100%;
+  max-width: 360px;
 }
 
 
 .title {
-  background: linear-gradient(20deg, #000000, #da0553de, rgba(65, 0, 27, 0.898) 60%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-stroke-width: .5px;
+  color: #000000;
+  font-size: .95rem;
 }
 
 
 .subtitle,
 .empty-msg {
-  color: rgb(192, 14, 88);
+  color: #000000;
+  font-size: .75rem;
 }
 
 
@@ -59,9 +65,7 @@ body {
 .joke-card {
   place-items: center;
   margin: 2%;
-  background: #141414f0;
-  border-radius: 10px;
-  color: rgb(243, 15, 159);
+  color: #000000;
   padding: 0.45em;
   width: 100%;
   max-width: 400px;
@@ -75,47 +79,84 @@ body {
 
 .joke-cate {
   font-size: 0.85em;
-  background: linear-gradient(80deg, #910745, #47011c, rgba(72, 4, 32, 0.595) 90%);
   padding: .35rem 1.2rem;
-  border-radius: 999px;
+  border-radius: 5px;
   font-weight: 600;
 }
 
 
 .generate-btn {
-  background: #141414f0;
-  color: rgb(192, 14, 88);
+  background: #1641ec;
+  color: #ffff;
   font-weight: 600;
   padding: 0.75em;
-  border-radius: 10px;
   border: none;
   transition: all 0.3s;
 }
 
 
-.generate-btn:hover {
-  color: rgb(213, 10, 78);
-  cursor: pointer;
-  box-shadow: 0px 0px 11px rgba(255, 0, 191, 0.083);
-  transform: scale(1.05);
-}
-
 
 /* MOBILITY */
-@media (max-width: 480px) {
+@media (max-width: 360px) and (max-height: 640px) {
+  .container {
+      max-width: 300px;
+      box-sizing: border-box;
+    }
+
+
     .subtitle {
       display: inline-block;
       width: 80%;
     }
 
 
-    .joke-msg {
-      font-size: .85rem;
+    .empty-msg, .joke-msg, 
+    .joke-cate {
+      font-size: .55rem;
+    }
+
+    .generate-btn {
+      font-size: .65rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .container {
+      max-width: 300px;
+      box-sizing: border-box;
     }
 
 
-    .joke-card {
+    .subtitle {
+      display: inline-block;
       width: 80%;
-      margin-bottom: 7%;
+    }
+
+
+    .empty-msg, .joke-msg, 
+    .joke-cate {
+      font-size: .65rem;
+    }
+
+    .generate-btn {
+      font-size: .65rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .empty-msg, .joke-msg, 
+    .joke-cate {
+      font-size: .85rem;
+    }
+
+    .generate-btn {
+      font-size: .85rem;
     }
 }
