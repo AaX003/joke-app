@@ -134,10 +134,6 @@ function JokeGenerator() {
         <h1 className="title">
           Joke Generator
         </h1>
-        <p className="subtitle">
-          Warning: May be cringy for some.
-          Use at your own discretion.
-        </p>
       </header>
       
       <main id="secondary-container" className="joke-display-container">

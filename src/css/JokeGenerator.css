@@ -1,162 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
-  overflow-y: visible;
-  scrollbar-width: none;
+/* Base */
+:root {
+  --ink: #111;          /* text */
+  --paper: #fff;        /* card bg */
+  --line: #e5e7eb;      /* borders */
+  --blue-500: #2563eb;  /* button */
+  --blue-600: #1d4ed8;  /* button hover */
 }
 
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
 
 body {
   margin: 0;
-  min-height: 100vh;
-  font-family: 'Poppins';
-  background-image: linear-gradient( 135deg, #ABDCFF 10%, #032dff 100%);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background: #f7f7f7;
 }
 
-
+/* Layout */
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  place-self: center;
-  text-align: center;
-  margin-top: 15vh;
-  background: #ffff;
-  padding: 2rem 3rem;
-  width: 100%;
-  max-width: 360px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.25rem;
+  display: grid;
+  gap: 1.25rem;
 }
-
 
 .title {
-  color: #000000;
-  font-size: .95rem;
+  display: flex;
+  justify-content: center;
+  place-self: center;
 }
-
-
-.subtitle,
-.empty-msg {
-  color: #000000;
-  font-size: .75rem;
-}
-
-
-.subtitle {
-  filter: brightness(0.7);
-  opacity: 0.8;
-  font-style: italic;
-  font-weight: 400;
-}
-
 
 .empty-msg {
-  font-size: 0.85em;
-  margin: 6%;
+  margin: 0;
+  text-align: center;
+  color: #555;
+  font-size: .85rem;
+  padding: 2rem 1rem;
 }
 
-
-
+/* Joke grid */
 .joke-wrapper {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  place-self: center;
+  align-items: center;
+  gap: .75rem;
 }
 
+/* Joke msg */
+.joke-msg {
+  text-wrap: wrap;
+  text-align: center;
+  max-width: 300px;
+}
 
+@media (min-width: 640px) {
+  .joke-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .joke-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Individual joke card */
 .joke-card {
-  place-items: center;
-  margin: 2%;
-  color: #000000;
-  padding: 0.45em;
-  width: 100%;
-  max-width: 400px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: .9rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  display: grid;
+  gap: .5rem;
 }
-
 
 .joke-msg {
-  font-size: 0.95em;
+  margin: 0;
+  line-height: 1.45;
 }
-
 
 .joke-cate {
-  font-size: 0.85em;
-  padding: .35rem 1.2rem;
-  border-radius: 5px;
-  font-weight: 600;
+  margin: 0;
+  font-size: .8rem;
+  color: #666;
+  padding-top: .25rem;
+  border-top: 1px dashed var(--line);
 }
 
+/* Generate button row */
+.joke-container,
+#teritary-container { 
+  display: flex;
+  justify-content: center;
+  padding: .25rem 0 1rem;
+}
 
+/* Button */
 .generate-btn {
-  background: #1641ec;
-  color: #ffff;
-  font-weight: 600;
-  padding: 0.75em;
-  border: none;
-  transition: all 0.3s;
+  border: 0;
+  border-radius: 999px;
+  padding: .75rem 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue-500);
+  cursor: pointer;
+  transition: background .2s ease;
 }
 
-
-
-/* MOBILITY */
-@media (max-width: 360px) and (max-height: 640px) {
-  .container {
-      max-width: 300px;
-      box-sizing: border-box;
-    }
-
-
-    .subtitle {
-      display: inline-block;
-      width: 80%;
-    }
-
-
-    .empty-msg, .joke-msg, 
-    .joke-cate {
-      font-size: .55rem;
-    }
-
-    .generate-btn {
-      font-size: .65rem;
-    }
+.generate-btn:hover {
+  background: var(--blue-600);
 }
 
-
-@media (max-width: 480px) {
-
-    .container {
-      max-width: 300px;
-      box-sizing: border-box;
-    }
-
-
-    .subtitle {
-      display: inline-block;
-      width: 80%;
-    }
-
-
-    .empty-msg, .joke-msg, 
-    .joke-cate {
-      font-size: .65rem;
-    }
-
-    .generate-btn {
-      font-size: .65rem;
-    }
+.generate-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(29, 78, 216, .22);
 }
 
+.generate-btn:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
 
-@media (max-width: 600px) {
-  .title {
-    font-size: 1.4rem;
-  }
-
-  .empty-msg, .joke-msg, 
-    .joke-cate {
-      font-size: .85rem;
-    }
-
-    .generate-btn {
-      font-size: .85rem;
-    }
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .generate-btn { transition: none; }
 }
